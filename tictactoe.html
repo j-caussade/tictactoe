@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+     <head>
+          <meta charset="UTF-8" />
+          <meta
+               name="viewport"
+               content="width=device-width, initial-scale=1.0"
+          />
+          <link rel="stylesheet" href="style.css" />
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+          <link
+               rel="stylesheet"
+               href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+          />
+          <script src="main.js" defer></script>
+          <title>Tic Tac Toe</title>
+     </head>
+     <body>
+          <h1>Tic Tac Toe</h1>
+          <div id="gamePanel">
+               <div id="typeGame">
+                    <label>Type of game :</label>
+                    <select name="" id="">
+                         <option value="">Player vs. player</option>
+                         <option value="">Player vs. computer</option>
+                         <option value="">Computer vs. computer</option>
+                    </select>
+               </div>
+               <button id="startRestart">Start/Restart</button>
+               <h2>Number of games :</h2>
+          </div>
+          <div id="playground">
+               <div class="player one">
+                    <img src="./img/cross.svg" alt="cross" class="one" />
+                    <h2>Red</h2>
+                    <h3>Score :</h3>
+                    <h5>Strokes :</h5>
+               </div>
+               <div id="grid">
+                    <div class="box" id="l1c1"></div>
+                    <div class="box" id="l1c2"></div>
+                    <div class="box" id="l1c3"></div>
+                    <div class="box" id="l2c1"></div>
+                    <div class="box" id="l2c2"></div>
+                    <div class="box" id="l2c3"></div>
+                    <div class="box" id="l3c1"></div>
+                    <div class="box" id="l3c2"></div>
+                    <div class="box" id="l3c3"></div>
+               </div>
+               <div class="player two">
+                    <img src="./img/circle.svg" alt="circle" class="red" />
+                    <h2>Blue</h2>
+                    <h3>Score :</h3>
+                    <h5>Strokes :</h5>
+               </div>
+          </div>
+          <div id="controlPanel">
+               <button class="controlButton">
+                    <img src="./img/undo.svg" alt="undo" class="controlTurn" />
+               </button>
+               <button class="controlButton">
+                    <img
+                         src="./img/done.svg"
+                         alt="validate"
+                         class="controlTurn"
+                    />
+               </button>
+          </div>
+     </body>
+</html>
