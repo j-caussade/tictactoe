@@ -19,23 +19,23 @@
      <body>
           <h1>Tic Tac Toe</h1>
           <div id="gamePanel">
-               <div id="typeGame">
-                    <label>Type of game :</label>
-                    <select name="" id="">
-                         <option value="">Player vs. player</option>
-                         <option value="">Player vs. computer</option>
-                         <option value="">Computer vs. computer</option>
+               <div id="typeGamePanel">
+                    <p>Type of game :</p>
+                    <select name="type_game" id="type_game">
+                         <option value="0" style="display: none;"></option>
+                         <option value="playerVsPlayer">Player vs. player</option>
+                         <option value="playerVsComputer">Player vs. computer</option>
+                         <option value="compterVsComputer" disabled>Computer vs. computer</option>
                     </select>
                </div>
-               <button id="startRestart">Start/Restart</button>
-               <h2>Number of games :</h2>
+               <h2>Number of games: <span id="games_number"></span></h2>
+               <button id="restart">Restart</button>
           </div>
           <div id="playground">
                <div class="player one">
                     <img src="./img/cross.svg" alt="cross" class="one" />
                     <h2>Red</h2>
-                    <h3>Score :</h3>
-                    <h5>Strokes :</h5>
+                    <h3>Score: <span id="redScoreDisplay">0</span></h3>
                </div>
                <div id="grid">
                     <div class="box" id="l1c1"></div>
@@ -51,20 +51,13 @@
                <div class="player two">
                     <img src="./img/circle.svg" alt="circle" class="red" />
                     <h2>Blue</h2>
-                    <h3>Score :</h3>
-                    <h5>Strokes :</h5>
+                    <h3>Score: <span id="blueScoreDisplay">0</span></h3>
                </div>
           </div>
-          <div id="controlPanel">
-               <button class="controlButton">
-                    <img src="./img/undo.svg" alt="undo" class="controlTurn" />
-               </button>
-               <button class="controlButton">
-                    <img
-                         src="./img/done.svg"
-                         alt="validate"
-                         class="controlTurn"
-                    />
+          <div id="alertWins">
+               <p><span id="winningPlayer"></span> wins !</p>
+               <button id="continue">
+                    Continue
                </button>
           </div>
      </body>
