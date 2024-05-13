@@ -102,47 +102,53 @@ function endGame() {
 
 // TYPE OF GAME FUNCTION:
 function typeGameChoose() {
+    console.log(typeGameButton.value);
     restart();
     if (typeGameButton.value == "playerVsPlayer") {
         for (let i = 0; i < gameBoxes.length; i++) {
-            gameBoxes[i].addEventListener("click", function() {
-                if (round <= 9) {
-                    if (gameBoxes[i].style.backgroundImage == false) {
-                        if (playerSelection == true) {
-                            gameBoxes[i].style.backgroundImage = "url(img/cross.svg)";
-                            playerSelection = false;
-                            round++;
-                            endGame();
-                        } else {
-                            gameBoxes[i].style.backgroundImage = "url(img/circle.svg)";
-                            playerSelection = true;
-                            round++;
-                            endGame();
-                        };
-                    }
-                }
-            })
+            gameBoxes[i].removeEventListener("click", playerAgainstComputer);
+            gameBoxes[i].addEventListener("click", playerVsPlayer);
         };
     } else if (typeGameButton.value == "playerVsComputer") {
         if (round <= 9) {
             if (playerSelection == true) {
                 for (let i = 0; i < gameBoxes.length; i++) {
-                    gameBoxes[i].addEventListener("click", function() {
-                        if (gameBoxes[i].style.backgroundImage == false) {
-                            gameBoxes[i].style.backgroundImage = "url(img/cross.svg)";
-                            playerSelection = false;
-                            round++;
-                            endGame();
-                            if (playerSelection == false) {
-                                computerPlay();
-                            };
-                        }
-                    })
+                    gameBoxes[i].removeEventListener("click", playerVsPlayer);
+                    gameBoxes[i].addEventListener("click", playerAgainstComputer);                    
                 }
+                
             }
         }
     };
 };
+
+function playerVsPlayer(event) {
+    if (event.target.style.backgroundImage == false) {
+        if (playerSelection == true) {
+            event.target.style.backgroundImage = "url(img/cross.svg)";
+            playerSelection = false;
+            round++;
+            endGame();
+        } else {
+            event.target.style.backgroundImage = "url(img/circle.svg)";
+            playerSelection = true;
+            round++;
+            endGame();
+        };
+    }
+}
+
+function playerAgainstComputer(event) {
+    if (event.target.style.backgroundImage == false) {
+        event.target.style.backgroundImage = "url(img/cross.svg)";
+        playerSelection = false;
+        round++;
+        endGame();
+        if (playerSelection == false) {
+            computerPlay();
+        };
+    }
+}
 
 // MOVE COMPUTER (BLUE):
 function computerPlay() {
